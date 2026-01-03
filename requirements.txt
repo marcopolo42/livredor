@@ -1,4 +1,4 @@
 keyboard~=0.13.5
-PyAudio~=0.2.14
+#PyAudio~=0.2.14
 
 # brew install portaudio
