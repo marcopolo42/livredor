@@ -82,7 +82,7 @@ class AudioGuestBook:
         try:
             while True:
                 # Listen for play/pause button (media key)
-                if keyboard.is_pressed('play/pause media'):
+                if keyboard.is_pressed('play/pause'):
                     if not self.recording:
                         self.start_recording()
                     else:
