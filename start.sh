@@ -2,7 +2,7 @@
 
 set -e  # exit on error
 
-REPO_DIR="$HOME/livredor"
+REPO_DIR="/home/user/livredor"
 VENV_DIR="venv"
 PYTHON_SCRIPT="main.py"
 REQUIREMENTS_FILE="requirements.txt"
