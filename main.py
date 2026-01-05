@@ -8,7 +8,7 @@ from datetime import datetime
 from evdev import InputDevice, ecodes, categorize
 
 
-INPUT_DEVICE = "/dev/input/event6"  # ⬅️ CHANGE THIS
+INPUT_DEVICE = "/dev/input/event6"  # ⬅️ À adapter si nécessaire
 
 
 class AudioGuestBook:
@@ -45,7 +45,8 @@ class AudioGuestBook:
             return
 
         os.system('cls' if os.name == 'nt' else 'clear')
-        print("\n🎙️ Recording started... Press the button to stop & save.")
+        print("\n🎙️ Enregistrement en cours...")
+        print("Appuyez sur le bouton pour arrêter et sauvegarder votre message.")
         self.recording = True
         self.frames = []
 
@@ -72,7 +73,7 @@ class AudioGuestBook:
         self.stream = None
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"recordings/guest_message_{timestamp}.wav"
+        filename = f"recordings/message_invité_{timestamp}.wav"
 
         with wave.open(filename, "wb") as wf:
             wf.setnchannels(self.CHANNELS)
@@ -81,25 +82,30 @@ class AudioGuestBook:
             wf.writeframes(b"".join(self.frames))
 
         os.system('cls' if os.name == 'nt' else 'clear')
-        print(f"✅ Recording saved: {filename}")
-        sleep(2)
+        print(f"✅ Message enregistré avec succès !")
+        print(f"📁 Fichier : {filename}")
+
+        sleep(4)
+
         os.system('cls' if os.name == 'nt' else 'clear')
         print("=" * 60)
-        print("🎤 WELCOME TO AUDIO GUEST BOOK FOR Benoît Dubuis !")
+        print("🎤 Bienvenue dans la capsule temporelle")
+        print("🎉 Pour l'anniversaire de Benoît Dubuis !")
         print("=" * 60)
-        print("\nInstructions:")
-        print("- Press the button on the phone to start recording !")
-        print("- Press the same button again to stop & save")
+        print("\nInstructions :")
+        print("- Appuyez sur le bouton du téléphone pour commencer l’enregistrement")
+        print("- Appuyez à nouveau sur le même bouton pour arrêter et sauvegarder")
 
-    # ================= MAIN LOOP =================
+    # ================= BOUCLE PRINCIPALE =================
 
     def run(self):
         print("=" * 60)
-        print("🎤 WELCOME TO AUDIO GUEST BOOK FOR Benoît Dubuis !")
+        print("🎤 BIENVENUE DANS LE LIVRE D’OR AUDIO")
+        print("🎉 Anniversaire de Benoît Dubuis")
         print("=" * 60)
-        print("\nInstructions:")
-        print("- Press the button on the phone to start recording !")
-        print("- Press the same button again to stop & save")
+        print("\nInstructions :")
+        print("- Appuyez sur le bouton du téléphone pour commencer l’enregistrement")
+        print("- Appuyez à nouveau sur le même bouton pour arrêter et sauvegarder")
 
         try:
             for event in self.device.read_loop():
@@ -118,11 +124,11 @@ class AudioGuestBook:
                         self.start_recording()
 
                 elif key.keycode in ("KEY_Q", "KEY_ESC"):
-                    print("\nExiting...")
+                    print("\nFermeture de l’application...")
                     break
 
         except KeyboardInterrupt:
-            print("\nInterrupted.")
+            print("\nInterruption détectée.")
         finally:
             if self.recording:
                 self.stop_recording()
@@ -130,7 +136,7 @@ class AudioGuestBook:
 
     def cleanup(self):
         self.audio.terminate()
-        print("Goodbye! 👋")
+        print("Au revoir 👋 Merci pour votre message !")
 
 
 if __name__ == "__main__":
