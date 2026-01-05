@@ -2,6 +2,7 @@ import pyaudio
 import wave
 import os
 import threading
+from time import sleep
 from datetime import datetime
 
 from evdev import InputDevice, ecodes, categorize
@@ -79,6 +80,7 @@ class AudioGuestBook:
             wf.writeframes(b"".join(self.frames))
 
         print(f"✅ Recording saved: {filename}")
+        sleep(60)
         print("=" * 60)
         print("🎤 WELCOME TO AUDIO GUEST BOOK FOR Benoît Dubuis !")
         print("=" * 60)
