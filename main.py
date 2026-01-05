@@ -79,8 +79,9 @@ class AudioGuestBook:
             wf.setframerate(self.RATE)
             wf.writeframes(b"".join(self.frames))
 
+        os.system('cls' if os.name == 'nt' else 'clear')
         print(f"✅ Recording saved: {filename}")
-        sleep(60)
+        sleep(5)
         print("=" * 60)
         print("🎤 WELCOME TO AUDIO GUEST BOOK FOR Benoît Dubuis !")
         print("=" * 60)
