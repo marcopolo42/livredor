@@ -79,19 +79,22 @@ class AudioGuestBook:
             wf.writeframes(b"".join(self.frames))
 
         print(f"✅ Recording saved: {filename}")
-        print("Press Play/Pause to record another message, or 'q' to quit.\n")
+        print("=" * 60)
+        print("🎤 WELCOME TO AUDIO GUEST BOOK FOR Benoît Dubuis !")
+        print("=" * 60)
+        print("\nInstructions:")
+        print("- Press the button on the phone to start recording !")
+        print("- Press the same button again to stop & save")
 
     # ================= MAIN LOOP =================
 
     def run(self):
         print("=" * 60)
-        print("🎤 AUDIO GUEST BOOK")
+        print("🎤 WELCOME TO AUDIO GUEST BOOK FOR Benoît Dubuis !")
         print("=" * 60)
         print("\nInstructions:")
-        print("- Press Play/Pause to start recording")
-        print("- Press Play/Pause again to stop & save")
-        print("- Press Q to quit (if supported)\n")
-        print("Waiting for input...")
+        print("- Press the button on the phone to start recording !")
+        print("- Press the same button again to stop & save")
 
         try:
             for event in self.device.read_loop():
