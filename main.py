@@ -44,7 +44,8 @@ class AudioGuestBook:
         if self.recording:
             return
 
-        print("\n🎙️ Recording started... Press Play/Pause to stop.")
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("\n🎙️ Recording started... Press the button to stop & save.")
         self.recording = True
         self.frames = []
 
