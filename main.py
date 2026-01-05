@@ -81,7 +81,8 @@ class AudioGuestBook:
 
         os.system('cls' if os.name == 'nt' else 'clear')
         print(f"✅ Recording saved: {filename}")
-        sleep(5)
+        sleep(2)
+        os.system('cls' if os.name == 'nt' else 'clear')
         print("=" * 60)
         print("🎤 WELCOME TO AUDIO GUEST BOOK FOR Benoît Dubuis !")
         print("=" * 60)
