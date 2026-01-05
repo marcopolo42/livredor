@@ -7,7 +7,7 @@ from datetime import datetime
 from evdev import InputDevice, ecodes, categorize
 
 
-INPUT_DEVICE = "/dev/input/eventX"  # ⬅️ CHANGE THIS
+INPUT_DEVICE = "/dev/input/event6"  # ⬅️ CHANGE THIS
 
 
 class AudioGuestBook:
